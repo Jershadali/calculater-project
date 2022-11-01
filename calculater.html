@@ -16,9 +16,17 @@
             align-items: center;
             font-size: larger;
             font-weight: bolder;
+            
 
 
 
+        }
+        .butn:hover{
+            background-color:white;
+            height: 55px;
+            width: 55px;
+            border-radius: 100%;
+            
         }
 
         .butn0 {
@@ -33,7 +41,12 @@
 
 
         }
-
+        .butn0:hover{
+            background-color:coral;
+            height: 55px;
+            width: 105px;
+            border-radius: 25px;
+        }
         .btnbgclr {
             background-color: gray;
         }
@@ -54,32 +67,32 @@
         <div style="height: 450px ; width: 350px ; background-color:black; ">
             <div class="container-fluid    d-flex justify-content-center align-items-center"
                 style="width: 350px; height: 100px; background-color: black;">
-                <input type="text" style="height:80px ; width:340px ;" id="numbDsplay" readonly>
+                <input type="text" style="height:80px ; width:340px ;" id="numbDsplay" >
 
             </div>
             <div class="container-fluid d-flex justify-content-between align-content-around"
                 style="width: 340px; height: 340px; background-color: black; margin-top: 5px;">
                 <div class="container-fluid d-flex flex-wrap justify-content-around align-content-around"
                     style="width: 273px; height: 337px; background-color:black; ">
-                    <div class="butn btnbgclr" onclick="onOperatorClick(delete)">AC</div>
-                    <div class="butn btnbgclr" onclick="onOperatorClick('+/-')">+/-</div>
-                    <div class="butn btnbgclr" onclick="onOperatorClick('%')">%</div>
-                    <div class="butn btnbgclr1" onclick="onOperatorClick('/')">÷</div>
-                    <div class="butn btnbgclr2" onclick="displaynumber(7)">7</div>
-                    <div class="butn btnbgclr2" onclick="displaynumber(8)">8</div>
-                    <div class="butn btnbgclr2" onclick="displaynumber(9)">9</div>
-                    <div class="butn btnbgclr1" onclick="onOperatorClick('*')">×</div>
-                    <div class="butn btnbgclr2" onclick="displaynumber(4)">4</div>
-                    <div class="butn btnbgclr2" onclick="displaynumber(5)">5</div>
-                    <div class="butn btnbgclr2" onclick="displaynumber(6)">6</div>
-                    <div class="butn btnbgclr1" onclick="onOperatorClick('-')">-</div>
-                    <div class="butn btnbgclr2" onclick="displaynumber(1)">1</div>
-                    <div class="butn btnbgclr2" onclick="displaynumber(2)">2</div>
-                    <div class="butn btnbgclr2" onclick="displaynumber(3)">3</div>
-                    <div class="butn btnbgclr1" onclick="onOperatorClick('+')">+</div>
-                    <div class="butn btnbgclr2" onclick="displaynumber('.')">.</div>
-                    <div class="butn btnbgclr2" onclick="displaynumber(0)">0</div>
-                    <div class="butn0 btnbgclr1" onclick="calculate()">=</div>
+                    <button class="butn btnbgclr" onclick="clears()">AC</button>
+                    <button class="butn btnbgclr">+/-</button >
+                    <button class="butn btnbgclr" onclick="onOperatorClick('%')">%</button >
+                    <button class="butn btnbgclr1" onclick="onOperatorClick('/')">÷</button >
+                    <button class="butn btnbgclr2" onclick="displaynumber(7)">7</button >
+                    <button class="butn btnbgclr2" onclick="displaynumber(8)">8</button >
+                    <button class="butn btnbgclr2" onclick="displaynumber(9)">9</button >
+                    <button class="butn btnbgclr1" onclick="onOperatorClick('*')">×</button >
+                    <button class="butn btnbgclr2" onclick="displaynumber(4)">4</button >
+                    <button class="butn btnbgclr2" onclick="displaynumber(5)">5</button >
+                    <button class="butn btnbgclr2" onclick="displaynumber(6)">6</button >
+                    <button class="butn btnbgclr1" onclick="onOperatorClick('-')">-</button >
+                    <button class="butn btnbgclr2" onclick="displaynumber(1)">1</button >
+                    <button class="butn btnbgclr2" onclick="displaynumber(2)">2</button >
+                    <button class="butn btnbgclr2" onclick="displaynumber(3)">3</button >
+                    <button class="butn btnbgclr1" onclick="onOperatorClick('+')">+</button >
+                    <button  class="butn btnbgclr2" onclick="displaynumber('.')">.</button >
+                    <button  class="butn btnbgclr2" onclick="displaynumber(0)">0</button >
+                    <button  class="butn0 btnbgclr1" onclick="calculate()">=</button >
 
                 </div>
 
@@ -103,7 +116,6 @@
             var displayTextbox = document.getElementById("numbDsplay");
             number1 = displayTextbox.value;
             displayTextbox.value = "";
-
         }
         function calculate() {
             var displayTextbox = document.getElementById("numbDsplay");
@@ -136,6 +148,9 @@
                 displayTextbox.value = result;
                 number1 = "";
 
+            }
+            function clears(){
+                document.getElementById("numbDsplay").value="0";
             }
 
 
