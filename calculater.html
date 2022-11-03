@@ -90,9 +90,9 @@
                     <button class="butn btnbgclr2" onclick="displaynumber(2)">2</button >
                     <button class="butn btnbgclr2" onclick="displaynumber(3)">3</button >
                     <button class="butn btnbgclr1" onclick="onOperatorClick('+')">+</button >
-                    <button  class="butn btnbgclr2" onclick="displaynumber('.')">.</button >
-                    <button  class="butn btnbgclr2" onclick="displaynumber(0)">0</button >
-                    <button  class="butn0 btnbgclr1" onclick="calculate()">=</button >
+                    <button class="butn btnbgclr2" onclick="displaynumber('.')">.</button >
+                    <button class="butn btnbgclr2" onclick="displaynumber(0)">0</button >
+                    <button class="butn0 btnbgclr1" onclick="calculate()">=</button >
 
                 </div>
 
@@ -105,17 +105,30 @@
     <script>
         var number1 = "";
         var lastOperator = "";
+        var  mode = "new";
+
         function displaynumber(numb) {
             var displayTextbox = document.getElementById("numbDsplay");
-            displayTextbox.value = displayTextbox.value + numb;
-
-
+    
+            if (mode == "new"){
+                displayTextbox.value = numb;
+            }
+            else{
+                displayTextbox.value = displayTextbox.value + numb;
+            }
+            mode = "append"
+                
+            
         }
         function onOperatorClick(operator) {
+            if ( number1 !== ""){
+                calculate() 
+            }
             lastOperator = operator;
             var displayTextbox = document.getElementById("numbDsplay");
             number1 = displayTextbox.value;
-            displayTextbox.value = "";
+    
+            mode = "new"
         }
         function calculate() {
             var displayTextbox = document.getElementById("numbDsplay");
@@ -151,6 +164,9 @@
             }
             function clears(){
                 document.getElementById("numbDsplay").value="0";
+                number1 = "";
+                mode = "new"
+                lastOperator = "";
             }
 
 
